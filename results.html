@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIT-IdeaHack 2025 - Selected Teams</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Funky Fonts for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Fredoka+One:wght@400&family=Righteous:wght@400&family=Luckiest+Guy:wght@400&family=Creepster:wght@400&family=Rubik+Wet+Paint:wght@400&display=swap" rel="stylesheet">
+    <!-- Pixel Fonts for Welcome Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- GSAP Library for Advanced Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 nav-glass">
+        <!-- Registration Extension Notification -->
+        <div class="registration-extension-banner">
+            <div class="registration-extension-content">
+                <span class="registration-extension-text">🎉 IDEA SUBMISSION DATE HAS BEEN EXTENDED 🎉</span>
+                <span class="registration-extension-details">Students can submit ideas for IDEA HACK '25 until Sept 26, 11.59 PM for registered participants!</span>
+            </div>
+        </div>
+        
+        <div class="w-full px-6 py-4">
+            <!-- Desktop Layout -->
+            <div class="hidden lg:flex justify-center items-center gap-8">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-2 group">
+                    <img src="logo.gif" alt="KIT-IdeaHack Logo" class="w-6 h-6 rounded-lg transform group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-white font-bold text-xl">KIT-IdeaHack 2025</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="problem-statements.html" class="nav-link">Problem Statements</a>
+                    <a href="results.html" class="nav-link active">Results</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+
+                <!-- Action Buttons (removed on results page) -->
+                <div class="flex items-center space-x-4"></div>
+            </div>
+
+            <!-- Mobile Layout -->
+            <div class="lg:hidden flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="logo.gif" alt="KIT-IdeaHack Logo" class="w-4 h-4 rounded-lg">
+                    <span class="text-white font-bold text-lg">KIT-IdeaHack 2025</span>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobile-menu">
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="problem-statements.html" class="nav-link">Problem Statements</a>
+                    <a href="results.html" class="nav-link active">Results</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <div class="flex flex-col space-y-2 pt-4"></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-16">
+        <!-- Hero Section -->
+        <section class="results-hero-section">
+            <div class="container mx-auto px-6 text-center">
+                <div class="results-hero-content">
+                    <h1 class="results-hero-title">
+                        <span class="results-title-main">SELECTED TEAMS</span>
+                        <span class="results-title-glow">SELECTED TEAMS</span>
+                    </h1>
+                    <p class="results-hero-subtitle">
+                        🎉 Congratulations to all the selected teams for Second Phase of KIT-IDEAHACK 2025! 🎉
+                    </p>
+                    <div class="results-celebration">
+                        <span class="celebration-emoji">🏆</span>
+                        <span class="celebration-emoji">🎊</span>
+                        <span class="celebration-emoji">⭐</span>
+                        <span class="celebration-emoji">🚀</span>
+                        <span class="celebration-emoji">💫</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="results-header mb-8">
+                        <h2 class="text-3xl font-bold text-white mb-4">Selected Teams List</h2>
+                        <p class="text-gray-300">Total Selected Teams: <span class="text-purple-400 font-semibold">62</span></p>
+                    </div>
+
+                    <!-- Results Table -->
+                    <div class="results-table-container">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>S. No.</th>
+                                    <th>Team Name</th>
+                                    <th>PS Code</th>
+                                    <th>Team Leader</th>
+                                    <th>Department</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>404 Found</td>
+                                    <td>KIT-25-40</td>
+                                    <td>Ravin Kumar K</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Achievers list</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Thennarasi Pa</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>AERO CHARMS</td>
+                                    <td>KIT-25-26</td>
+                                    <td>Kanishka B</td>
+                                    <td>AERO</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>ASPB</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Amruth</td>
+                                    <td>ECE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>BIONEX TEAM</td>
+                                    <td>KIT-25-39</td>
+                                    <td>J. JOTHSNA</td>
+                                    <td>BME</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>BitByBit</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Harshavardhan Gupta A</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>Bug Busters</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Priyanka K</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>Campusconnect</td>
+                                    <td>KIT-25-09</td>
+                                    <td>Sowndarya R</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>CODE & CORE</td>
+                                    <td>KIT-25-12</td>
+                                    <td>Divyadharshini B</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Codeclever</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Y.srimathi</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>Codex fusion</td>
+                                    <td>KIT-25-45</td>
+                                    <td>NITHYA SRI R</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>Cyberzz Haxk</td>
+                                    <td>KIT-25-32</td>
+                                    <td>Riyaz</td>
+                                    <td>CSE (Cyber Security)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>DRDK</td>
+                                    <td>KIT-25-22</td>
+                                    <td>Danica Rachel Benjamin</td>
+                                    <td>ECE(VLSI)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td>DRAKE</td>
+                                    <td>KIT-25-45</td>
+                                    <td>SANTHOSH</td>
+                                    <td>AERO</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>Error 101</td>
+                                    <td>KIT-25-12</td>
+                                    <td>Mohan V</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>EUREKA MINDS</td>
+                                    <td>KIT-25-22</td>
+                                    <td>ATHISH M</td>
+                                    <td>ECE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>Ft._Innovators</td>
+                                    <td>KIT-25-02</td>
+                                    <td>Hari V P</td>
+                                    <td>AIDS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>18</td>
+                                    <td>Future Minds</td>
+                                    <td>KIT-25-25</td>
+                                    <td>Preethika S</td>
+                                    <td>ECE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>19</td>
+                                    <td>Glitch404</td>
+                                    <td>KIT-25-45</td>
+                                    <td>VEERAKUMAR A</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>Hack Hers</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Swathi</td>
+                                    <td>CSBS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>21</td>
+                                    <td>HackStellar</td>
+                                    <td>KIT-25-08</td>
+                                    <td>Puvetha N</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>22</td>
+                                    <td>HACKTASTIC FOUR</td>
+                                    <td>KIT-25-08</td>
+                                    <td>Sanjay K</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>23</td>
+                                    <td>HACKTIVISTS</td>
+                                    <td>KIT-25-09</td>
+                                    <td>NOORUL HASIIN M</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>24</td>
+                                    <td>Hope</td>
+                                    <td>KIT-25-11</td>
+                                    <td>Smiriti kumari</td>
+                                    <td>ECE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>25</td>
+                                    <td>IDEA DONORS</td>
+                                    <td>KIT-25-22</td>
+                                    <td>MOHAMED IDREES A S</td>
+                                    <td>EEE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>26</td>
+                                    <td>Infinity Crew</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Prince S</td>
+                                    <td>CSE(AIML)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>27</td>
+                                    <td>Inno four</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Yamuna</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>28</td>
+                                    <td>Innovator's</td>
+                                    <td>KIT-25-01</td>
+                                    <td>ATHULYA P C</td>
+                                    <td>ECE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>29</td>
+                                    <td>JASO THE HACKTIVATORS</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Subhashini V</td>
+                                    <td>BIOTECH</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>30</td>
+                                    <td>Leap of faith</td>
+                                    <td>KIT-25-23</td>
+                                    <td>Dharshini priya K</td>
+                                    <td>AERO</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>31</td>
+                                    <td>Mac Team</td>
+                                    <td>KIT-25-45</td>
+                                    <td>ASAR JOE INFANTA A</td>
+                                    <td>BME</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>32</td>
+                                    <td>MICRO MINDS</td>
+                                    <td>KIT-25-45</td>
+                                    <td>THOLKAAPPIYA S B</td>
+                                    <td>BIOTECH</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>33</td>
+                                    <td>Monsoon Makers</td>
+                                    <td>KIT-25-07</td>
+                                    <td>Kirthik Siva T</td>
+                                    <td>CSE (Cyber Security)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>34</td>
+                                    <td>Neural Spark</td>
+                                    <td>KIT-25-25</td>
+                                    <td>S.prasannaa babu</td>
+                                    <td>BME</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>35</td>
+                                    <td>NEUROHACK</td>
+                                    <td>KIT-25-08</td>
+                                    <td>MEGA SREE M S</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>36</td>
+                                    <td>Nextgen</td>
+                                    <td>KIT-25-22</td>
+                                    <td>Shalini R</td>
+                                    <td>ECE(VLSI)</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>37</td>
+                                    <td>Ocean Blue</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Pranav P</td>
+                                    <td>ECE(VLSI)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>38</td>
+                                    <td>Parthip Bug Busters</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Thirugnana Sivanandham D</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>39</td>
+                                    <td>QUADRAMIND</td>
+                                    <td>KIT-25-45</td>
+                                    <td>GOKUL S</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>40</td>
+                                    <td>Quantlite</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Shrutika Sri</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>41</td>
+                                    <td>Research Rangers</td>
+                                    <td>KIT-25-45</td>
+                                    <td>SASTIKKA K</td>
+                                    <td>BIOTECH</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>42</td>
+                                    <td>Royals</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Jaisurya</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>43</td>
+                                    <td>RUNTIME TERRORS</td>
+                                    <td>KIT-25-25</td>
+                                    <td>JOSEPH P S MITHUN</td>
+                                    <td>AERO</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>44</td>
+                                    <td>Shining star</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Vikas j</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>45</td>
+                                    <td>Sixer Squad</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Elakiyaa S</td>
+                                    <td>CSE (Cyber Security)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>46</td>
+                                    <td>sos talkie</td>
+                                    <td>KIT-25-14</td>
+                                    <td>DIYA SHRI B</td>
+                                    <td>ECE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>47</td>
+                                    <td>SRN Team</td>
+                                    <td>KIT-25-09</td>
+                                    <td>Sahana S</td>
+                                    <td>CSBS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>48</td>
+                                    <td>Stephenson</td>
+                                    <td>KIT-25-45</td>
+                                    <td>B. PRATHEEP VENKAT</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>49</td>
+                                    <td>Team Errorz</td>
+                                    <td>KIT-25-22</td>
+                                    <td>BHARATHKUMAR A K</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>50</td>
+                                    <td>Team Hackerzzz</td>
+                                    <td>KIT-25-10</td>
+                                    <td>Nithesh Raj</td>
+                                    <td>ECE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>51</td>
+                                    <td>Team HPS</td>
+                                    <td>KIT-25-22</td>
+                                    <td>Prakatheeswaran D</td>
+                                    <td>AIDS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>52</td>
+                                    <td>TEAM LINK AND LEARN</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Jeslin J</td>
+                                    <td>CSE</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>53</td>
+                                    <td>Team77</td>
+                                    <td>KIT-25-43</td>
+                                    <td>Archana</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>54</td>
+                                    <td>Tech Titans</td>
+                                    <td>KIT-25-12</td>
+                                    <td>RISHI V</td>
+                                    <td>AIDS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>55</td>
+                                    <td>Techno Trio</td>
+                                    <td>KIT-25-35</td>
+                                    <td>Sathiya Priya. K</td>
+                                    <td>AIDS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>56</td>
+                                    <td>Techy Spiders</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Vishva</td>
+                                    <td>AIDS</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>57</td>
+                                    <td>The Fantastic Four!</td>
+                                    <td>KIT-25-45</td>
+                                    <td>keerthana</td>
+                                    <td>CSE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>58</td>
+                                    <td>The innovators</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Aadhitya V</td>
+                                    <td>ECE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>59</td>
+                                    <td>THE INNOVATORS</td>
+                                    <td>KIT-25-41</td>
+                                    <td>PRADIV RAJ M</td>
+                                    <td>MECH</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>60</td>
+                                    <td>The Path Finders</td>
+                                    <td>KIT-25-01</td>
+                                    <td>Ruchika. A</td>
+                                    <td>CSE (Cyber Security)</td>
+                                    <td>I</td>
+                                </tr>
+                                <tr>
+                                    <td>61</td>
+                                    <td>THE SPARK PLUGS</td>
+                                    <td>KIT-25-14</td>
+                                    <td>SIVA PRAKASH M</td>
+                                    <td>ECE</td>
+                                    <td>II</td>
+                                </tr>
+                                <tr>
+                                    <td>62</td>
+                                    <td>Tri-Nexus</td>
+                                    <td>KIT-25-45</td>
+                                    <td>Nitheesh V S</td>
+                                    <td>CSE (Cyber Security)</td>
+                                    <td>I</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2025 KIT-IdeaHack. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

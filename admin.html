@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - KIT-Idea Hack 2025</title>
+    <meta name="description" content="Admin dashboard for managing KIT-Idea Hack 2025 data">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/gif" href="logo.gif">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBK27Y0jFJrLVuECsGsnVKk3928xZ5Dri0",
+          authDomain: "kit-ideahack-2025.firebaseapp.com",
+          projectId: "kit-ideahack-2025",
+          storageBucket: "kit-ideahack-2025.firebasestorage.app",
+          messagingSenderId: "8955934824",
+          appId: "1:8955934824:web:29c7d226b59ea2c1d2a3dd",
+          measurementId: "G-8BPWWRB39B"
+        };
+        
+        // Add connection settings for better reliability
+        const firebaseSettings = {
+          experimentalForceLongPolling: true,
+          ignoreUndefinedProperties: true
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const analytics = getAnalytics(app);
+        
+        // Make Firebase available globally
+        window.firebase = { 
+            db, 
+            collection, 
+            getDocs, 
+            query, 
+            orderBy, 
+            limit 
+        };
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+
+        .admin-container {
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .admin-header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .admin-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .admin-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .admin-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .admin-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-info {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+        .admin-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .welcome-section {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .export-section {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .export-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .export-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .export-subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .export-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .export-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .export-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .export-btn.json {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .export-btn.json:hover {
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .export-btn.csv {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+
+        .export-btn.csv:hover {
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .export-btn.all {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .export-btn.all:hover {
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .data-preview {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .data-preview h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .data-preview pre {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            max-width: 400px;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .notification-success {
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .notification-error {
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .admin-nav {
+                padding: 0 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .admin-content {
+                padding: 1rem;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .export-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-container">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="admin-nav">
+                <div class="admin-logo">
+                    <img src="logo.gif" alt="KIT Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <span class="text-white font-bold text-sm hidden">K</span>
+                    <h1 class="admin-title">Admin Dashboard</h1>
+                </div>
+                <div class="admin-actions">
+                    <div class="user-info" id="admin-user-info">
+                        Admin Dashboard
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Content -->
+        <main class="admin-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Admin Dashboard</h1>
+                <p class="welcome-subtitle">Manage and export KIT-Idea Hack 2025 data</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" id="total-registrations">-</div>
+                    <div class="stat-label">Total Registrations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💡</div>
+                    <div class="stat-number" id="total-submissions">-</div>
+                    <div class="stat-label">Idea Submissions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number" id="total-teams">-</div>
+                    <div class="stat-label">Active Teams</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-number" id="data-size">-</div>
+                    <div class="stat-label">Data Size</div>
+                </div>
+            </div>
+
+            <!-- Export Section -->
+            <div class="export-section">
+                <div class="export-header">
+                    <h2 class="export-title">📥 Data Export</h2>
+                    <p class="export-subtitle">Download all Firebase data in CSV or JSON format</p>
+                </div>
+
+                <div class="export-buttons">
+                    <button class="export-btn csv" id="export-registrations-csv">
+                        📋 Export Registrations (CSV)
+                    </button>
+                    <button class="export-btn json" id="export-registrations-json">
+                        📋 Export Registrations (JSON)
+                    </button>
+                    <button class="export-btn csv" id="export-submissions-csv">
+                        💡 Export Submissions (CSV)
+                    </button>
+                    <button class="export-btn json" id="export-submissions-json">
+                        💡 Export Submissions (JSON)
+                    </button>
+                    <button class="export-btn all csv" id="export-all-csv">
+                        📦 Export All Data (CSV)
+                    </button>
+                    <button class="export-btn all json" id="export-all-json">
+                        📦 Export All Data (JSON)
+                    </button>
+                </div>
+
+                <div class="data-preview" id="data-preview" style="display: none;">
+                    <h3>Data Preview</h3>
+                    <pre id="preview-content"></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Admin Dashboard Class
+        class AdminDashboard {
+            constructor() {
+                this.allData = {
+                    registrations: [],
+                    submissions: []
+                };
+                this.init();
+            }
+
+            async init() {
+                // Wait for Firebase to be available
+                await this.waitForFirebase();
+                
+                // Set up event listeners
+                this.setupEventListeners();
+                
+                // Load data immediately
+                this.loadData();
+            }
+
+            async waitForFirebase() {
+                return new Promise((resolve) => {
+                    const checkFirebase = () => {
+                        if (window.firebase) {
+                            resolve();
+                        } else {
+                            setTimeout(checkFirebase, 100);
+                        }
+                    };
+                    checkFirebase();
+                });
+            }
+
+
+            setupEventListeners() {
+                // Export buttons
+                this.setupExportButtons();
+            }
+
+            setupExportButtons() {
+                // Registrations CSV
+                document.getElementById('export-registrations-csv').addEventListener('click', () => {
+                    this.exportData('registrations', 'csv');
+                });
+
+                // Registrations JSON
+                document.getElementById('export-registrations-json').addEventListener('click', () => {
+                    this.exportData('registrations', 'json');
+                });
+
+                // Submissions CSV
+                document.getElementById('export-submissions-csv').addEventListener('click', () => {
+                    this.exportData('submissions', 'csv');
+                });
+
+                // Submissions JSON
+                document.getElementById('export-submissions-json').addEventListener('click', () => {
+                    this.exportData('submissions', 'json');
+                });
+
+                // All data CSV
+                document.getElementById('export-all-csv').addEventListener('click', () => {
+                    this.exportAllData('csv');
+                });
+
+                // All data JSON
+                document.getElementById('export-all-json').addEventListener('click', () => {
+                    this.exportAllData('json');
+                });
+            }
+
+
+            async loadData() {
+                try {
+                    this.showNotification('Loading data...', 'info');
+                    console.log('Starting data load...');
+                    
+                    // First, let's test Firebase connection
+                    await this.testFirebaseConnection();
+                    
+                    // Load registrations
+                    console.log('Loading registrations...');
+                    await this.loadRegistrations();
+                    console.log('Registrations loaded:', this.allData.registrations.length);
+                    
+                    // Load submissions
+                    console.log('Loading submissions...');
+                    await this.loadSubmissions();
+                    console.log('Submissions loaded:', this.allData.submissions.length);
+                    
+                    // Update statistics
+                    this.updateStatistics();
+                    
+                    this.showNotification('Data loaded successfully!', 'success');
+                    
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    console.error('Error details:', {
+                        message: error.message,
+                        code: error.code,
+                        stack: error.stack
+                    });
+                    this.showNotification(`Error loading data: ${error.message}`, 'error');
+                }
+            }
+
+            async testFirebaseConnection() {
+                try {
+                    console.log('Testing Firebase connection...');
+                    console.log('Firebase object:', window.firebase);
+                    console.log('DB object:', window.firebase?.db);
+                    
+                    if (!window.firebase) {
+                        throw new Error('Firebase not loaded');
+                    }
+                    if (!window.firebase.db) {
+                        throw new Error('Firestore database not initialized');
+                    }
+                    
+                    console.log('Firebase connection test passed');
+                    
+                    // Try to list available collections
+                    await this.listAvailableCollections();
+                    
+                } catch (error) {
+                    console.error('Firebase connection test failed:', error);
+                    throw error;
+                }
+            }
+
+            async listAvailableCollections() {
+                try {
+                    console.log('Attempting to list available collections...');
+                    
+                    // Common collection names to test
+                    const possibleCollections = [
+                        'competitionRegistrations',
+                        'idea-submissions',
+                        'users',
+                        'registrations',
+                        'submissions',
+                        'teams',
+                        'participants'
+                    ];
+                    
+                    const { collection, getDocs, db } = window.firebase;
+                    
+                    for (const collectionName of possibleCollections) {
+                        try {
+                            console.log(`Testing collection: ${collectionName}`);
+                            const testRef = collection(db, collectionName);
+                            const testSnapshot = await getDocs(testRef);
+                            console.log(`✅ Collection '${collectionName}' exists with ${testSnapshot.size} documents`);
+                        } catch (error) {
+                            console.log(`❌ Collection '${collectionName}' does not exist or is not accessible:`, error.message);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error listing collections:', error);
+                }
+            }
+
+            async loadRegistrations() {
+                try {
+                    const { collection, getDocs, db } = window.firebase;
+                    console.log('Firebase objects available:', { collection, getDocs, db });
+                    
+                    const registrationsRef = collection(db, 'competitionRegistrations');
+                    console.log('Registrations reference created');
+                    
+                    const snapshot = await getDocs(registrationsRef);
+                    console.log('Snapshot received, size:', snapshot.size);
+                    
+                    this.allData.registrations = [];
+                    snapshot.forEach((doc) => {
+                        console.log('Processing registration doc:', doc.id);
+                        this.allData.registrations.push({
+                            id: doc.id,
+                            ...doc.data()
+                        });
+                    });
+                    console.log('Registrations processed:', this.allData.registrations.length);
+                } catch (error) {
+                    console.error('Error loading registrations:', error);
+                    throw error;
+                }
+            }
+
+            async loadSubmissions() {
+                try {
+                    const { collection, getDocs, db } = window.firebase;
+                    console.log('Loading submissions...');
+                    
+                    const submissionsRef = collection(db, 'idea-submissions');
+                    console.log('Submissions reference created');
+                    
+                    const snapshot = await getDocs(submissionsRef);
+                    console.log('Submissions snapshot received, size:', snapshot.size);
+                    
+                    this.allData.submissions = [];
+                    snapshot.forEach((doc) => {
+                        console.log('Processing submission doc:', doc.id);
+                        this.allData.submissions.push({
+                            id: doc.id,
+                            ...doc.data()
+                        });
+                    });
+                    console.log('Submissions processed:', this.allData.submissions.length);
+                } catch (error) {
+                    console.error('Error loading submissions:', error);
+                    throw error;
+                }
+            }
+
+            updateStatistics() {
+                // Update registration count
+                document.getElementById('total-registrations').textContent = this.allData.registrations.length;
+                
+                // Update submission count
+                document.getElementById('total-submissions').textContent = this.allData.submissions.length;
+                
+                // Update team count (unique teams)
+                const uniqueTeams = new Set(this.allData.registrations.map(r => r.teamName)).size;
+                document.getElementById('total-teams').textContent = uniqueTeams;
+                
+                // Update data size
+                const dataSize = JSON.stringify(this.allData).length;
+                const sizeInKB = Math.round(dataSize / 1024);
+                document.getElementById('data-size').textContent = `${sizeInKB} KB`;
+            }
+
+            async exportData(dataType, format) {
+                try {
+                    this.showNotification(`Preparing ${dataType} export...`, 'info');
+                    
+                    const data = this.allData[dataType];
+                    if (!data || data.length === 0) {
+                        this.showNotification(`No ${dataType} data found`, 'error');
+                        return;
+                    }
+
+                    if (format === 'csv') {
+                        this.downloadCSV(data, `${dataType}-export-${new Date().toISOString().split('T')[0]}.csv`);
+                    } else if (format === 'json') {
+                        this.downloadJSON(data, `${dataType}-export-${new Date().toISOString().split('T')[0]}.json`);
+                    }
+                    
+                    this.showNotification(`${dataType} exported successfully!`, 'success');
+                    
+                } catch (error) {
+                    console.error(`Export error for ${dataType}:`, error);
+                    this.showNotification(`Error exporting ${dataType}. Please try again.`, 'error');
+                }
+            }
+
+            async exportAllData(format) {
+                try {
+                    this.showNotification('Preparing complete data export...', 'info');
+                    
+                    const allData = {
+                        registrations: this.allData.registrations,
+                        submissions: this.allData.submissions,
+                        exportDate: new Date().toISOString(),
+                        totalRegistrations: this.allData.registrations.length,
+                        totalSubmissions: this.allData.submissions.length
+                    };
+
+                    if (format === 'csv') {
+                        // For CSV, we'll create separate files for each collection
+                        this.downloadCSV(this.allData.registrations, `all-registrations-${new Date().toISOString().split('T')[0]}.csv`);
+                        this.downloadCSV(this.allData.submissions, `all-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+                    } else if (format === 'json') {
+                        this.downloadJSON(allData, `complete-export-${new Date().toISOString().split('T')[0]}.json`);
+                    }
+                    
+                    this.showNotification('Complete data export successful!', 'success');
+                    
+                } catch (error) {
+                    console.error('Export error for all data:', error);
+                    this.showNotification('Error exporting all data. Please try again.', 'error');
+                }
+            }
+
+            downloadCSV(data, filename) {
+                if (!data || data.length === 0) {
+                    this.showNotification('No data to export', 'error');
+                    return;
+                }
+
+                // Get all unique keys from all objects
+                const allKeys = [...new Set(data.flatMap(obj => Object.keys(obj)))];
+                
+                // Create CSV header
+                const headers = allKeys.join(',');
+                
+                // Create CSV rows
+                const rows = data.map(obj => {
+                    return allKeys.map(key => {
+                        const value = obj[key];
+                        if (value === null || value === undefined) {
+                            return '';
+                        }
+                        if (typeof value === 'object') {
+                            return `"${JSON.stringify(value).replace(/"/g, '""')}"`;
+                        }
+                        if (typeof value === 'string' && value.includes(',')) {
+                            return `"${value.replace(/"/g, '""')}"`;
+                        }
+                        return value;
+                    }).join(',');
+                });
+                
+                const csvContent = [headers, ...rows].join('\n');
+                
+                // Download file
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', filename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            downloadJSON(data, filename) {
+                const jsonContent = JSON.stringify(data, null, 2);
+                
+                // Download file
+                const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', filename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            setButtonLoading(button, loading) {
+                const btnText = button.querySelector('.btn-text');
+                const btnLoading = button.querySelector('.btn-loading');
+                
+                if (loading) {
+                    button.disabled = true;
+                    if (btnText) btnText.classList.add('hidden');
+                    if (btnLoading) btnLoading.classList.remove('hidden');
+                } else {
+                    button.disabled = false;
+                    if (btnText) btnText.classList.remove('hidden');
+                    if (btnLoading) btnLoading.classList.add('hidden');
+                }
+            }
+
+
+            showNotification(message, type = 'info') {
+                // Remove existing notifications
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(notification => notification.remove());
+
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+
+        }
+
+        // Initialize admin dashboard when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            new AdminDashboard();
+        });
+    </script>
+</body>
+</html>

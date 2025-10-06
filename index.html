@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIT-IdeaHack 2025</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Funky Fonts for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Fredoka+One:wght@400&family=Righteous:wght@400&family=Luckiest+Guy:wght@400&family=Creepster:wght@400&family=Rubik+Wet+Paint:wght@400&display=swap" rel="stylesheet">
+    <!-- Pixel Fonts for Welcome Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- GSAP Library for Advanced Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, doc, setDoc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBK27Y0jFJrLVuECsGsnVKk3928xZ5Dri0",
+          authDomain: "kit-ideahack-2025.firebaseapp.com",
+          projectId: "kit-ideahack-2025",
+          storageBucket: "kit-ideahack-2025.firebasestorage.app",
+          messagingSenderId: "8955934824",
+          appId: "1:8955934824:web:29c7d226b59ea2c1d2a3dd",
+          measurementId: "G-8BPWWRB39B"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const analytics = getAnalytics(app);
+        
+        // Make Firebase available globally
+        window.firebase = { auth, db, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail, collection, addDoc, doc, setDoc, getDoc, query, where, getDocs };
+      </script>
+</head>
+<body>
+    <!-- Drone Animation -->
+    <div class="drone-container">
+        <div class="drone">
+            <div class="drone-propeller top-left"></div>
+            <div class="drone-propeller top-right"></div>
+            <div class="drone-body"></div>
+            <div class="drone-propeller bottom-left"></div>
+            <div class="drone-propeller bottom-right"></div>
+            <div class="drone-cable"></div>
+        </div>
+        <!-- Drone carrying navbar cargo -->
+        <div class="drone-cargo">
+            <div class="cargo-logo">K</div>
+            <div class="cargo-text">KITHack</div>
+            <div class="cargo-nav">
+                <div class="cargo-nav-item">H</div>
+                <div class="cargo-nav-item">A</div>
+                <div class="cargo-nav-item">C</div>
+                <div class="cargo-nav-item">K</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 nav-glass">
+        <!-- Registration Extension Notification -->
+        <div class="registration-extension-banner">
+            <div class="registration-extension-content">
+                <span class="registration-extension-text">🎉 STAGE 1 RESULTS HAVE BEEN PUBLISHED 🎉</span>
+                <span class="registration-extension-details">Students can now view their results by clicking the Selected Teams button below</span>
+            </div>
+        </div>
+        
+        
+        <div class="w-full px-6 py-4">
+            <!-- Desktop Layout -->
+            <div class="hidden lg:flex justify-center items-center gap-8">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-2 group">
+                    <div class="logo-container">
+                        <img src="logo.gif" alt="KIT Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <span class="text-white font-bold text-sm hidden">K</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold college-name-text leading-tight">
+                    KIT-KalaignarKarunanidhi Institute of Technology
+                        </span>
+                    </div>
+                </div>
+            
+                <!-- Desktop Navigation -->
+                <nav class="flex items-center space-x-1">
+                    <a href="#hero-banner" class="nav-link">Home</a>
+                    <a href="problem-statements.html" class="nav-link">Problems</a>
+                    <a href="results.html" class="nav-link">Results</a>
+                    <a href="#instructions-timeline" class="nav-link">Instructions</a>
+                    <a href="#rules-benefits" class="nav-link">Benefits</a>
+                    <a href="#instructions-timeline" class="nav-link">Timeline</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </nav>
+            
+                <!-- Desktop CTA Buttons -->
+                <div class="flex items-center space-x-3">
+                    <button class="nav-login-button">
+                        Login
+                    </button>
+                    <button class="nav-cta-button" id="nav-register-btn">
+                Registration Closed
+            </button>
+                    <a href="results.html" class="nav-results-button">
+                        🏆 Results
+                    </a>
+                </div>
+                
+                <!-- PDC Logo -->
+                
+            </div>
+            
+            <!-- Mobile Layout -->
+            <div class="mobile-header">
+                <div class="mobile-header-top">
+                    <!-- Left: KIT Logo -->
+                    <div class="mobile-kit-logo">
+                        <img src="logo.gif" alt="KIT Logo" class="mobile-logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <span class="mobile-logo-fallback">K</span>
+                    </div>
+                    
+                    <!-- Center: College Name -->
+                    <div class="mobile-college-name">
+                        <span class="mobile-college-text">
+                            KIT-Kalaignar Karunanidhi Institute of Technology
+                        </span>
+                    </div>
+                    
+                    <!-- Right: PDC Logo + Menu Button -->
+                   
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-menu" id="mobile-menu">
+                <nav class="flex flex-col space-y-2 py-4">
+                    <a href="#hero-banner" class="mobile-nav-link">Home</a>
+                    <a href="problem-statements.html" class="mobile-nav-link">Problems</a>
+                    <a href="results.html" class="mobile-nav-link">Results</a>
+                    <a href="#instructions-timeline" class="mobile-nav-link">Instructions</a>
+                    <a href="#rules-benefits" class="mobile-nav-link">Benefits</a>
+                    <a href="#instructions-timeline" class="mobile-nav-link">Timeline</a>
+                    <a href="#faq" class="mobile-nav-link">FAQ</a>
+                    <div class="pt-4 border-t border-border/50 space-y-3">
+                        <button class="mobile-login-button">
+                            Login
+                        </button>
+                        <button class="mobile-cta-button" id="mobile-register-btn">
+                            Registration Closed
+                        </button>
+                        <a href="results.html" class="mobile-results-button">
+                            🏆 Results
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-banner min-h-screen flex items-center justify-center relative overflow-hidden" id="hero-banner">
+        <!-- Enhanced Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-hero opacity-20"></div>
+        
+        <!-- Interactive Cursor Trail -->
+        <div class="cursor-trail" id="cursor-trail"></div>
+        
+        <!-- Floating Technology Icons -->
+        <div class="tech-icons-container">
+            <div class="tech-icon tech-icon-1" data-icon="💻">💻</div>
+            <div class="tech-icon tech-icon-2" data-icon="⚡">⚡</div>
+            <div class="tech-icon tech-icon-3" data-icon="🔧">🔧</div>
+            <div class="tech-icon tech-icon-4" data-icon="🚀">🚀</div>
+            <div class="tech-icon tech-icon-5" data-icon="💡">💡</div>
+            <div class="tech-icon tech-icon-6" data-icon="🌐">🌐</div>
+            <div class="tech-icon tech-icon-7" data-icon="📱">📱</div>
+            <div class="tech-icon tech-icon-8" data-icon="🎯">🎯</div>
+            <div class="tech-icon tech-icon-9" data-icon="🔬">🔬</div>
+            <div class="tech-icon tech-icon-10" data-icon="⚙️">⚙️</div>
+            <div class="tech-icon tech-icon-11" data-icon="🎨">🎨</div>
+            <div class="tech-icon tech-icon-12" data-icon="🔮">🔮</div>
+        </div>
+        
+        
+        <!-- Circuit Pattern Background -->
+        <div class="circuit-pattern">
+            <svg class="circuit-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="circuitPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <rect width="100" height="100" fill="transparent"/>
+                        <path d="M10,10 L90,10 L90,90 L10,90 Z" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/>
+                        <circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="80" cy="20" r="2" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="20" cy="80" r="2" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.2)"/>
+                        <line x1="20" y1="20" x2="80" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                        <line x1="80" y1="20" x2="20" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#circuitPattern)"/>
+            </svg>
+        </div>
+        
+        <!-- Enhanced Particle System -->
+        <div class="particles-container">
+            <!-- Small Particles -->
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
+            <div class="particle particle-9"></div>
+            <div class="particle particle-10"></div>
+            <div class="particle particle-11"></div>
+            <div class="particle particle-12"></div>
+            <div class="particle particle-13"></div>
+            <div class="particle particle-14"></div>
+            <div class="particle particle-15"></div>
+            <div class="particle particle-16"></div>
+            
+            <!-- Medium Particles -->
+            <div class="particle particle-medium particle-17"></div>
+            <div class="particle particle-medium particle-18"></div>
+            <div class="particle particle-medium particle-19"></div>
+            <div class="particle particle-medium particle-20"></div>
+            <div class="particle particle-medium particle-21"></div>
+            <div class="particle particle-medium particle-22"></div>
+            <div class="particle particle-medium particle-23"></div>
+            <div class="particle particle-medium particle-24"></div>
+            
+            <!-- Large Particles -->
+            <div class="particle particle-large particle-25"></div>
+            <div class="particle particle-large particle-26"></div>
+            <div class="particle particle-large particle-27"></div>
+            <div class="particle particle-large particle-28"></div>
+            <div class="particle particle-large particle-29"></div>
+            <div class="particle particle-large particle-30"></div>
+            
+            <!-- Extra Large Particles -->
+            <div class="particle particle-xl particle-31"></div>
+            <div class="particle particle-xl particle-32"></div>
+            <div class="particle particle-xl particle-33"></div>
+            <div class="particle particle-xl particle-34"></div>
+        </div>
+        
+        <!-- Floating Orbs with Glow Effects -->
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+            <div class="orb orb-5"></div>
+            <div class="orb orb-6"></div>
+        </div>
+        
+        <!-- Geometric Shapes with Tech Theme -->
+        <div class="geometric-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+        
+        <!-- Dynamic Light Rays -->
+        <div class="light-rays">
+            <div class="ray ray-1"></div>
+            <div class="ray ray-2"></div>
+            <div class="ray ray-3"></div>
+            <div class="ray ray-4"></div>
+        </div>
+        
+        <!-- Animated Grid with Tech Pattern -->
+        <div class="animated-grid"></div>
+        
+        <!-- Floating Binary Code -->
+        <div class="binary-rain">
+            <div class="binary-column binary-column-1">
+                01001000<br>01100001<br>01100011<br>01101011<br>01100001<br>01110100<br>01101000<br>01101111<br>01101110<br>00100000<br>00110010<br>00110000<br>00110010<br>00110101
+            </div>
+            <div class="binary-column binary-column-2">
+                01001001<br>01101110<br>01101110<br>01101111<br>01110110<br>01100001<br>01110100<br>01101001<br>01101111<br>01101110<br>00100000<br>01000001<br>01101001<br>01110111
+            </div>
+            <div class="binary-column binary-column-3">
+                01010100<br>01100101<br>01100011<br>01101000<br>01101110<br>01101111<br>01101100<br>01101111<br>01100111<br>01111001<br>00100000<br>01001000<br>01100001<br>01100011
+            </div>
+            <div class="binary-column binary-column-4">
+                01000011<br>01110010<br>01100101<br>01100001<br>01110100<br>01101001<br>01110110<br>01101001<br>01110100<br>01111001<br>00100000<br>01001001<br>01100100<br>01100101
+            </div>
+            <div class="binary-column binary-column-5">
+                01001000<br>01100001<br>01100011<br>01101011<br>01100001<br>01110100<br>01101000<br>01101111<br>01101110<br>00100000<br>00110010<br>00110000<br>00110010<br>00110101
+            </div>
+        </div>
+        
+        <!-- Holographic Overlay -->
+        <div class="holographic-overlay"></div>
+        
+        
+        <div class="w-full px-4 text-center relative z-10">
+            <div class="w-full">
+                <!-- Enhanced Animated Title with Floating Timer -->
+                <div class="hero-title-container relative">
+                    <h1 class="hero-title text-7xl md:text-9xl lg:text-[12rem] font-black mb-8">
+                        <span class="enhanced-word" data-word="KIT">KIT</span>
+                        <span class="title-separator">-</span>
+                        <span class="enhanced-word" data-word="Idea">Idea</span>
+                        <span class="enhanced-word" data-word="Hack">Hack</span>
+                    </h1>
+                    <h2 class="hero-year text-6xl md:text-8xl lg:text-[10rem] font-black mb-8">
+                        <span class="enhanced-word year-word" data-word="2025">2025</span>
+                    </h2>
+                </div>
+                
+                <!-- News Ticker Below Title -->
+                <div class="news-ticker-below-title" style="border: none !important; background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important; border-radius: 4px !important; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important; padding: 2px 6px !important; width: 100vw !important; max-width: 100vw !important; height: 28px !important; display: flex !important; align-items: center !important; margin-left: calc(-50vw + 50%) !important; margin-right: calc(-50vw + 50%) !important; opacity: 0; animation: tickerReveal 1s ease-out 2.5s forwards;">
+                    <div class="news-ticker-content">
+                        <span class="news-ticker-icon">📢</span>
+                        <span class="news-ticker-text">📢 Stage 1 results have been published! Click the Results or Selected Teams button to view.</span>
+                    </div>
+                </div>
+                
+                <!-- Animated Subtitle -->
+                <p class="hero-subtitle max-w-4xl mx-auto">
+                    <span class="pixel-welcome-text">Welcome, Freshers & Sophomores of KIT!</span> <br> 
+                    <span class="pixel-shine-text">This is your moment to shine!</span>
+                </p>
+                <br>
+                <!-- Animated Buttons -->
+                <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="results.html" class="hero-btn-results floating-btn">
+                        <span class="btn-text">🏆 SELECTED TEAMS</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <button class="hero-btn-primary floating-btn" id="hero-register-btn">
+                        <span class="btn-text">REGISTRATION CLOSED</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                    <button class="hero-btn-login floating-btn" disabled style="opacity:0.7;cursor:not-allowed">
+                        <span class="btn-text">LOGIN DISABLED</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                    
+                    <a href="problem-statements.html" class="hero-btn-secondary floating-btn">
+                        <span class="btn-text">💡 PROBLEM STATEMENTS</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    
+                    <a href="#instructions-timeline" class="hero-btn-timeline floating-btn">
+                        <span class="btn-text">📆 TIMELINE</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                </div>
+                
+                <!-- Additional Action Buttons -->
+                <div class="hero-additional-buttons flex flex-col sm:flex-row gap-4 justify-center mb-24">
+                    <a href="#rules-benefits" class="hero-btn-rules floating-btn">
+                        <span class="btn-text">📋 RULES</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="#instructions-timeline" class="hero-btn-guidelines floating-btn">
+                        <span class="btn-text">📖 GUIDELINES</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="#rules-benefits" class="hero-btn-achievements floating-btn">
+                        <span class="btn-text">🏆 ACHIEVEMENTS</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    
+                </div>
+                </div>
+                </div>
+                
+            <!-- Scroll Indicator - Positioned outside the main content -->
+            
+        </div>
+    </section>
+
+
+
+    <!-- YouTube Videos Section -->
+    <section class="youtube-videos-section py-16 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="videos-bg-animation">
+            <div class="floating-video-icons">
+                <div class="video-icon video-icon-1">🎬</div>
+                <div class="video-icon video-icon-2">📹</div>
+                <div class="video-icon video-icon-3">🎥</div>
+                <div class="video-icon video-icon-4">📺</div>
+            </div>
+        </div>
+        
+        <div class="w-full px-4 relative z-10">
+            <div class="videos-container max-w-6xl mx-auto">
+                <h2 class="videos-title text-4xl md:text-5xl font-bold text-center text-white mb-12" style="text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);">
+                    🎥 Watch Our Videos
+                </h2>
+                <div class="videos-grid grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <!-- Video 1 -->
+                    <div class="video-wrapper">
+                        <div class="video-container relative w-full" style="padding-bottom: 56.25%;">
+                            <iframe 
+                                class="absolute top-0 left-0 w-full h-full rounded-lg shadow-2xl border-2 border-white/20"
+                                src="https://www.youtube.com/embed/Nl91g4vHmAI?rel=0&modestbranding=1&showinfo=0" 
+                                title="KIT Idea Hack 2025 - Video 1"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <h4 class="video-title">What is KIT-Idea Hack 2025?</h4>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-wrapper">
+                        <div class="video-container relative w-full" style="padding-bottom: 56.25%;">
+                            <iframe 
+                                class="absolute top-0 left-0 w-full h-full rounded-lg shadow-2xl border-2 border-white/20"
+                                src="https://www.youtube.com/embed/504ateLjm2U?rel=0&modestbranding=1&showinfo=0" 
+                                title="KIT Idea Hack 2025 - Video 2"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <h4 class="video-title">Step-by-step Guide for Participation</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combined Instructions & Timeline Section -->
+    <section id="instructions-timeline" class="instructions-timeline-section py-20 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="instructions-bg-animation">
+            <div class="floating-code-blocks">
+                <div class="code-block code-block-1">&lt;hack&gt;</div>
+                <div class="code-block code-block-2">&lt;innovate&gt;</div>
+                <div class="code-block code-block-3">&lt;create&gt;</div>
+                <div class="code-block code-block-4">&lt;win&gt;</div>
+                <div class="code-block code-block-5">&lt;/hack&gt;</div>
+            </div>
+            <div class="floating-icons">
+                <div class="floating-icon icon-1">🚀</div>
+                <div class="floating-icon icon-2">💡</div>
+                <div class="floating-icon icon-3">⚡</div>
+                <div class="floating-icon icon-4">🎯</div>
+                <div class="floating-icon icon-5">🏆</div>
+                <div class="floating-icon icon-6">🔥</div>
+            </div>
+            
+            <!-- Additional Floating Particles -->
+            <div class="floating-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+                <div class="particle particle-6"></div>
+                <div class="particle particle-7"></div>
+                <div class="particle particle-8"></div>
+            </div>
+            
+            <!-- Glowing Orbs -->
+            <div class="glowing-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="circuit-lines">
+                <div class="circuit-line line-1"></div>
+                <div class="circuit-line line-2"></div>
+                <div class="circuit-line line-3"></div>
+                <div class="circuit-line line-4"></div>
+            </div>
+        </div>
+        
+        <div class="w-full px-4 relative z-10">
+            <!-- Combined Section Header -->
+            <div class="combined-header mb-16">
+                <div class="text-center">
+                    <h2 class="combined-title text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+                        How to Participate & Timeline
+                    </h2>
+                    <p class="combined-subtitle text-xl text-gray-300 max-w-3xl mx-auto">
+                        🎮 Follow these steps and stay updated with important dates for KIT-Idea Hack! 🎮
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Side by Side Layout -->
+            <div class="side-by-side-container">
+                <!-- Left Side - Instructions -->
+                <div class="instructions-side">
+                    
+                    <!-- Compact Instructions List -->
+                    <div class="instructions-list">
+                        <!-- Step 1 -->
+                        <div class="instruction-item item-1">
+                            <div class="instruction-number">01</div>
+                            <div class="instruction-content">
+                                <div class="instruction-icon">📝</div>
+                                <h4 class="instruction-title">Register Your Team</h4>
+                                <p class="instruction-description">Complete the registration form with your and your team's details (up to 4 members) to secure your spot in the hack.</p>
+                                <div class="instruction-tags">
+                                    <span class="tag">Team Building</span>
+                                    <span class="tag">Registration</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="instruction-item item-2">
+                            <div class="instruction-number">02</div>
+                            <div class="instruction-content">
+                                <div class="instruction-icon">🎯</div>
+                                <h4 class="instruction-title">Choose a Problem Statement</h4>
+                                <p class="instruction-description">Browse through 44 problem statements and select the one that excites you. Each problem varies in focus area and difficulty.</p>
+                                <div class="instruction-tags">
+                                    <span class="tag">Problem Selection</span>
+                                    <span class="tag">Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="instruction-item item-3">
+                            <div class="instruction-number">03</div>
+                            <div class="instruction-content">
+                                <div class="instruction-icon">🤝</div>
+                                <h4 class="instruction-title">Collaborate with Your Team</h4>
+                                <p class="instruction-description">Connect with your teammates, discuss ideas, and start planning how to approach the selected problem.</p>
+                                <div class="instruction-tags">
+                                    <span class="tag">Ideation</span>
+                                    <span class="tag">Planning</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="instruction-item item-4">
+                            <div class="instruction-number">04</div>
+                            <div class="instruction-content">
+                                <div class="instruction-icon">⚡</div>
+                                <h4 class="instruction-title">Start Building Solutions</h4>
+                                <p class="instruction-description">Brainstorm creative solutions, refine your ideas, and document your progress using the provided template.</p>
+                                <div class="instruction-tags">
+                                    <span class="tag">Development</span>
+                                    <span class="tag">Innovation</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="instruction-item item-5">
+                            <div class="instruction-number">05</div>
+                            <div class="instruction-content">
+                                <div class="instruction-icon">🧠</div>
+                                <h4 class="instruction-title">Get Mentorship Support</h4>
+                                <p class="instruction-description">Leverage expert guidance throughout the hack. Mentors are available to assist with technical hurdles.</p>
+                                <div class="instruction-tags">
+                                    <span class="tag">Mentorship</span>
+                                    <span class="tag">Support</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 6 -->
+                        <div class="instruction-item item-6">
+                            <div class="instruction-number">06</div>
+                            <div class="instruction-content">
+                                <div class="instruction-icon">🏆</div>
+                                <h4 class="instruction-title">Submit & Present</h4>
+                                <p class="instruction-description">Submit your final solution by the deadline and present it to the judges if selected. This is your opportunity to showcase your innovation.</p>
+                                <div class="instruction-tags">
+                                    <span class="tag">Presentation</span>
+                                    <span class="tag">Competition</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Center Divider -->
+                <div class="center-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">⚡</div>
+                </div>
+                
+                <!-- Right Side - Timeline -->
+                <div class="timeline-side">
+                    <div class="section-header">
+                        <h3 class="section-title">📅 Event Timeline</h3>
+                        <p class="section-subtitle">Important dates and deadlines</p>
+                    </div>
+                    
+                    <!-- Timeline Events -->
+                    <div class="timeline-events">
+                        <!-- Event 1 -->
+                        <div class="timeline-event event-1">
+                            <div class="event-date">
+                                <div class="date-day">15</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">01</div>
+                                <h4 class="event-title">LAUNCH OF EVENT</h4>
+                                <p class="event-description">Official launch of KIT-Idea Hack 2025</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 2 -->
+                        <div class="timeline-event event-2">
+                            <div class="event-date">
+                                <div class="date-day">16</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">02</div>
+                                <h4 class="event-title">ORIENTATION & STARTER KIT</h4>
+                                <p class="event-description">Orientation session and starter kit distribution</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 3 -->
+                        <div class="timeline-event event-3">
+                            <div class="event-date">
+                                <div class="date-day">16-20</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">03</div>
+                                <h4 class="event-title">REGISTRATION BEGINS</h4>
+                                <p class="event-description">Team registration period opens</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 4 -->
+                        <div class="timeline-event event-4">
+                            <div class="event-date">
+                                <div class="date-day">17-24</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">04</div>
+                                <h4 class="event-title">IDEA SUBMISSION</h4>
+                                <p class="event-description">Submit your innovative ideas and solutions</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 5 -->
+                        <div class="timeline-event event-5">
+                            <div class="event-date">
+                                <div class="date-day">28</div>
+                                <div class="date-month">Sep</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">05</div>
+                                <h4 class="event-title">ANNOUNCEMENT OF SHORTLISTED TEAMS</h4>
+                                <p class="event-description">Shortlisted teams will be announced</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 6 -->
+                        <div class="timeline-event event-6">
+                            <div class="event-date">
+                                <div class="date-day">03</div>
+                                <div class="date-month">Oct</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">06</div>
+                                <h4 class="event-title">ONLINE PRESENTATION FOR SHORTLISTED TEAMS</h4>
+                                <p class="event-description">Shortlisted teams present their solutions online</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 7 -->
+                        <div class="timeline-event event-7">
+                            <div class="event-date">
+                                <div class="date-day">05</div>
+                                <div class="date-month">Oct</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">07</div>
+                                <h4 class="event-title">FINALIST ANNOUNCEMENT</h4>
+                                <p class="event-description">Finalist teams will be announced</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 8 -->
+                        <div class="timeline-event event-8">
+                            <div class="event-date">
+                                <div class="date-day">09</div>
+                                <div class="date-month">Oct</div>
+                            </div>
+                            <div class="event-content">
+                                <div class="event-badge">08</div>
+                                <h4 class="event-title">GRAND FINALE AND AWARD CEREMONY</h4>
+                                <p class="event-description">Final presentations and award distribution ceremony</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modern Floating Elements -->
+            <div class="modern-floating-elements">
+                <div class="floating-icon icon-1">💻</div>
+                <div class="floating-icon icon-2">🚀</div>
+                <div class="floating-icon icon-3">⚡</div>
+                <div class="floating-icon icon-4">🎨</div>
+                <div class="floating-icon icon-5">💡</div>
+                <div class="floating-icon icon-6">🔥</div>
+                <div class="floating-icon icon-7">✨</div>
+                <div class="floating-icon icon-8">🌟</div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+   
+
+    <!-- Registration Section -->
+
+    <!-- Gaming Dashboard Rules & Rewards Section -->
+    <section id="rules-benefits" class="gaming-dashboard-section py-20 relative overflow-hidden">
+        <!-- Gaming Environment Background -->
+        <div class="gaming-environment">
+            <!-- Circuit Board Pattern -->
+            <div class="circuit-board">
+                <div class="circuit-line line-1"></div>
+                <div class="circuit-line line-2"></div>
+                <div class="circuit-line line-3"></div>
+                <div class="circuit-line line-4"></div>
+            </div>
+            
+            <!-- Floating Code Blocks -->
+            <div class="floating-code">
+                <div class="code-block cb-1">{ }</div>
+                <div class="code-block cb-2">&lt;/&gt;</div>
+                <div class="code-block cb-3">[ ]</div>
+                <div class="code-block cb-4">( )</div>
+                <div class="code-block cb-5">##</div>
+            </div>
+            
+            <!-- Gaming HUD Elements -->
+            <div class="hud-elements">
+                <div class="hud-corner corner-tl"></div>
+                <div class="hud-corner corner-tr"></div>
+                <div class="hud-corner corner-bl"></div>
+                <div class="hud-corner corner-br"></div>
+            </div>
+        </div>
+        
+        <div class="w-full px-4 relative z-10">
+            <!-- Gaming Dashboard Header -->
+            <div class="dashboard-header mb-20">
+                <div class="text-center">
+                    <div class="gaming-hud-title">
+                        <div class="hud-brackets">[</div>
+                        <h2 class="dashboard-title text-5xl md:text-7xl font-bold text-white leading-tight">
+                            Rules and Loots
+                        </h2>
+                        <div class="hud-brackets">]</div>
+                    </div>
+                    <p class="dashboard-subtitle text-xl text-white max-w-4xl mx-auto" style="text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);">
+                        🎮 Master the game of engineering and unlock epic rewards in your academic adventure! 🎮
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Gaming Dashboard Layout -->
+            <div class="dashboard-layout">
+                <!-- Rules Command Center -->
+                <div class="rules-command-center">
+                    <div class="command-header">
+                        <div class="command-title">
+                            <span class="command-icon">⚡</span>
+                            <h3>RULES AND INSTRUCTIONS<br></h3>
+                            <span class="command-icon">⚡</span>
+                        </div>
+                        <div class="command-subtitle">Essential rules to dominate the arena</div><br>
+                    </div>
+                    <br>
+                    <!-- Circular Rules Radar -->
+                    <div class="rules-radar">
+                        
+                        <!-- Rules positioned around the circle -->
+                        <div class="rule-node node-1" data-rule="1">
+                            <div class="node-content">
+                                <div class="rule-number">1</div>
+                                <div class="node-desc">Only first- and second-year students are allowed to participate</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-2" data-rule="2">
+                            <div class="node-content">
+                                <div class="rule-number">2</div>
+                                <div class="node-desc">Teams can have 2-4 members maximum</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-3" data-rule="3">
+                            <div class="node-content">
+                                <div class="rule-number">3</div>
+                                <div class="node-desc">Teams may be interdisciplinary(all departments)</div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="rule-node node-5" data-rule="5">
+                            <div class="node-content">
+                                <div class="rule-number">4</div>
+                                <div class="node-desc">Idea should be presented on PPT with the given template</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-6" data-rule="6">
+                            <div class="node-content">
+                                <div class="rule-number">5</div>
+                                <div class="node-desc">Don't share your ideas with anyone outside your team</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-7" data-rule="7">
+                            <div class="node-content">
+                                <div class="rule-number">6</div>
+                                <div class="node-desc">Prototype submission is optional, ideas alone are sufficient for evaluation</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-8" data-rule="8">
+                            <div class="node-content">
+                                <div class="rule-number">7</div>
+                                <div class="node-desc">During Final Presentation,Each team will get a maximum of 15 minutes to present, including Q&A</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-9" data-rule="9">
+                            <div class="node-content">
+                                <div class="rule-number">8</div>
+                                <div class="node-desc">Ideas must be original and not copied</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-node node-10" data-rule="10">
+                            <div class="node-content">
+                                <div class="rule-number">9</div>
+                                <div class="node-desc">The jury panel's decision will be final</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rewards Achievement Gallery -->
+                <div class="rewards-gallery">
+                    <div class="gallery-header">
+                        <div class="gallery-title">
+                            <span class="gallery-icon">🏆</span>
+                            <h3>ACHIEVEMENT UNLOCKS</h3>
+                            <span class="gallery-icon">🏆</span>
+                        </div>
+                        <div class="gallery-subtitle">Epic rewards for legendary players</div>
+                    </div>
+                    
+                    <!-- Achievement Cards Grid -->
+                    <div class="achievement-grid">
+                        <div class="achievement-card achievement-1">
+                            <div class="achievement-badge">LEGENDARY</div>
+                            <div class="achievement-icon">🚀</div>
+                            <h4 class="achievement-name">Innovation Boost</h4>
+                            <p class="achievement-desc">Transform creativity into groundbreaking ideas</p>
+                            <div class="achievement-tags">
+                                <span class="achievement-tag">Creative</span>
+                                <span class="achievement-tag">Innovation</span>
+                            </div>
+                            <div class="achievement-glow"></div>
+                        </div>
+                        
+                        <div class="achievement-card achievement-2">
+                            <div class="achievement-badge">EPIC</div>
+                            <div class="achievement-icon">🤝</div>
+                            <h4 class="achievement-name">Network Power</h4>
+                            <p class="achievement-desc">Connect with brilliant minds and mentors</p>
+                            <div class="achievement-tags">
+                                <span class="achievement-tag">Networking</span>
+                                <span class="achievement-tag">Community</span>
+                            </div>
+                            <div class="achievement-glow"></div>
+                        </div>
+                        
+                        <div class="achievement-card achievement-3">
+                            <div class="achievement-badge">MYTHIC</div>
+                            <div class="achievement-icon">🏆</div>
+                            <h4 class="achievement-name">Win Big</h4>
+                            <p class="achievement-desc">Compete for exciting prizes and recognition</p>
+                            <div class="achievement-tags">
+                                <span class="achievement-tag">Prizes</span>
+                                <span class="achievement-tag">Recognition</span>
+                            </div>
+                            <div class="achievement-glow"></div>
+                        </div>
+                        
+                        <div class="achievement-card achievement-4">
+                            <div class="achievement-badge">RARE</div>
+                            <div class="achievement-icon">💼</div>
+                            <h4 class="achievement-name">Career Boost</h4>
+                            <p class="achievement-desc">Enhance portfolio with real experience</p>
+                            <div class="achievement-tags">
+                                <span class="achievement-tag">Career</span>
+                                <span class="achievement-tag">Portfolio</span>
+                            </div>
+                            <div class="achievement-glow"></div>
+                        </div>
+                        
+                        <div class="achievement-card achievement-5">
+                            <div class="achievement-badge">EPIC</div>
+                            <div class="achievement-icon">🧠</div>
+                            <h4 class="achievement-name">Skill Master</h4>
+                            <p class="achievement-desc">Learn problem-solving & presentation skills</p>
+                            <div class="achievement-tags">
+                                <span class="achievement-tag">Skills</span>
+                                <span class="achievement-tag">Growth</span>
+                            </div>
+                            <div class="achievement-glow"></div>
+                        </div>
+                        
+                        <div class="achievement-card achievement-6">
+                            <div class="achievement-badge">LEGENDARY</div>
+                            <div class="achievement-icon">⚡</div>
+                            <h4 class="achievement-name">Market Ready</h4>
+                            <p class="achievement-desc">Turn ideas into market-ready products</p>
+                            <div class="achievement-tags">
+                                <span class="achievement-tag">Market</span>
+                                <span class="achievement-tag">Product</span>
+                            </div>
+                            <div class="achievement-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Interactive Q&A Chat Section -->
+    <section id="faq" class="qa-chat-section py-20 relative overflow-hidden">
+        <!-- Chat Environment Background -->
+        <div class="chat-environment">
+            <!-- Floating Chat Bubbles -->
+            <div class="floating-bubbles">
+                <div class="chat-bubble bubble-1">💬</div>
+                <div class="chat-bubble bubble-2">❓</div>
+                <div class="chat-bubble bubble-3">💡</div>
+                <div class="chat-bubble bubble-4">🤔</div>
+                <div class="chat-bubble bubble-5">✨</div>
+                <div class="chat-bubble bubble-6">🎯</div>
+            </div>
+            
+            <!-- FAQ Floating Geometric Shapes -->
+            <div class="faq-floating-shapes">
+                <div class="faq-shape faq-shape-1"></div>
+                <div class="faq-shape faq-shape-2"></div>
+                <div class="faq-shape faq-shape-3"></div>
+                <div class="faq-shape faq-shape-4"></div>
+                <div class="faq-shape faq-shape-5"></div>
+            </div>
+            
+            <!-- Digital Rain Effect -->
+            <div class="digital-rain">
+                <div class="rain-drop drop-1">?</div>
+                <div class="rain-drop drop-2">!</div>
+                <div class="rain-drop drop-3">Q</div>
+                <div class="rain-drop drop-4">A</div>
+                <div class="rain-drop drop-5">?</div>
+                <div class="rain-drop drop-6">!</div>
+            </div>
+            
+            <!-- Network Connections -->
+            <div class="network-lines">
+                <div class="network-line line-1"></div>
+                <div class="network-line line-2"></div>
+                <div class="network-line line-3"></div>
+            </div>
+        </div>
+        
+        <div class="w-full px-4 relative z-10">
+            <!-- Chat Header -->
+            <div class="chat-header mb-20">
+                <div class="text-center">
+                    <div class="chat-status-bar">
+                        <div class="status-dot online"></div>
+                        <span class="status-text">KIT-Idea Hack Support</span>
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <h2 class="chat-title text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+                        💬 Frequently Asked Questions
+                    </h2>
+
+                </div>
+            </div>
+            
+            <!-- Chat Conversation -->
+            <div class="chat-conversation">
+                <div class="chat-container">
+                    <div class="chat-message question-msg" id="q1">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Is it compulsory to have a girl in the team?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">No, it is not compulsory to have a girl in the team. However, we strongly encourage and appreciate gender diversity in teams.</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                        
+                    <!-- Chat Message 1 -->
+                    <div class="chat-message question-msg" id="q1">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">What is this hack?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">This is an intra-college idea hack organized exclusively for first- and second-year students of KIT. It aims to encourage innovative thinking and problem-solving skills. 🚀</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 2 -->
+                    <div class="chat-message question-msg" id="q2">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Who can participate?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Only students from KIT are eligible. However, interdisciplinary teams (students from different departments) are encouraged. 👥</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                        
+                    <!-- Chat Message 3 -->
+                    <div class="chat-message question-msg" id="q3">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">How many members can be in a team?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Each team must have a minimum of 2 and a maximum of 4 members. 👥</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 4 -->
+                    <div class="chat-message question-msg" id="q4">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Can all members be girls?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Yes! Teams with all girls are highly encouraged. 👩‍💻</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 5 -->
+                    <div class="chat-message question-msg" id="q5">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Can one person participate in more than one team?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">No. A participant can only be part of one team. 🚫</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+            
+                    <!-- Chat Message 6 -->
+                    <div class="chat-message question-msg" id="q6">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Can a team submit more than one idea?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">No. Each team is allowed to submit only one idea. 💡</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 7 -->
+                    <div class="chat-message question-msg" id="q7">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">What if a team member drops out during the hack?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">The team may continue, provided the minimum team size (2 members) is maintained. 👥</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 8 -->
+                    <div class="chat-message question-msg" id="q8">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">How do we register?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Registration was open from 16 September 2025 to 22 September 2025. Registration has now closed. Thank you for your interest! 📝</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 9 -->
+                    <div class="chat-message question-msg" id="q9">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Is there any registration fee?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">No. Participation is completely free. 🆓</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 10 -->
+                    <div class="chat-message question-msg" id="q10">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Do we need to build a working prototype?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">A working prototype is encouraged but not mandatory. Submitting an idea alone is acceptable. 💡</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 11 -->
+                    <div class="chat-message question-msg" id="q11">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">Can we use AI tools like ChatGPT during the hack?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Yes, AI tools may be used for brainstorming and research, but the originality of the idea will be evaluated. Copy-paste or fully AI-generated ideas will lead to disqualification. 🤖</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 12 -->
+                    <div class="chat-message question-msg" id="q12">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">What are the judging criteria?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Ideas will be evaluated based on:<br><br>
+                            • Originality & Innovation<br>
+                            • Relevance to the Theme<br>
+                            • Feasibility & Practicality<br>
+                            • Impact on Society / Market Potential<br>
+                            • Clarity of Presentation 🏆</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Message 13 -->
+                    <div class="chat-message question-msg" id="q13">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">What happens to our idea after the event?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">The idea remains the intellectual property of the team. However, promising ideas may get additional support from the organizers for further development. 💡</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    <div class="chat-message question-msg" id="q13">
+                        <div class="message-avatar student-avatar">
+                            <span>🧑‍🎓</span>
+                        </div>
+                        <div class="message-bubble question-bubble">
+                            <div class="message-text">I didn’t get the confirmation email. What should I do?</div>
+                            <div class="message-time">2 seconds ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-message answer-msg">
+                        <div class="message-avatar bot-avatar">
+                            <span>🤖</span>
+                        </div>
+                        <div class="message-bubble answer-bubble">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="message-text">Check your Spam/Junk folder. If it’s not there, use the Resend Email option. 💡</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modern Clean Footer -->
+    <footer class="compact-footer">
+        <!-- Floating Decorative Elements -->
+        <div class="footer-decoration footer-decoration-1"></div>
+        <div class="footer-decoration footer-decoration-2"></div>
+        <div class="footer-decoration footer-decoration-3"></div>
+        
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <img src="logo.gif" alt="KIT Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="logo-fallback" style="display: none;">
+                        <div class="logo-circle">K</div>
+                    </div>
+                </div>
+                <div class="brand-info">
+                    <h3>KIT-Idea Hack 2025</h3>
+                    <p>🚀 Empowering student innovators</p>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4 class="footer-section-title">Quick Links</h4>
+                <a href="#hero-banner">Home</a>
+                <a href="problem-statements.html">Problem Statements</a>
+                <a href="#rules-benefits">Benefits</a>
+                <a href="#faq">FAQ</a>
+                <a href="#instructions-timeline">Timeline</a>
+                <a href="#instructions-timeline">Instructions</a>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 class="footer-section-title">Contact</h4>
+                <div class="contact-box">
+                    <span class="contact-icon">📧</span>
+                    <span>gopikrishnan.p@kitcbe.ac.in</span>
+                </div>
+                <div class="contact-box">
+                    <span class="contact-icon">📱</span>
+                    <span>+91 7094298001, +91 9942564855</span>
+                </div>
+                <div class="contact-box">
+                    <span class="contact-icon">📍</span>
+                    <span>KIT - KalaignarKarunanidhi Institute of Technology</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 KIT-Idea Hack. <br>  Made with ❤️ by PDC Students</p>
+        </div>
+    </footer>
+
+    <!-- Custom Registration Pop-up -->
+    <div class="popup-overlay" id="registration-popup">
+        <div class="popup-container">
+            <div class="popup-content">
+                <div class="popup-header">
+                    <div class="popup-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                    </div>
+                    <button class="popup-close" id="popup-close">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="popup-body">
+                    <h3 class="popup-title">Registration Closing Soon!</h3>
+                    <p class="popup-message">
+                        Registration closes on <span class="popup-date">22nd September 2025</span>
+                    </p>
+                    <div class="popup-countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">--</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">--</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">--</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">--</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <button class="popup-button" id="popup-ok">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <!-- Login Modal -->
+    <div class="auth-modal" id="login-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h2>Login to KIT-IdeaHack</h2>
+                <button class="auth-close" id="login-close">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div id="login-info" class="auth-info-box" style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 15px; margin-bottom: 20px; color: #92400e;">
+                    <h4 style="margin: 0 0 8px 0; color: #92400e;">🔑 Login Required</h4>
+                    <p style="margin: 0; font-size: 0.9rem;">If you don't have an account yet, please register first. New users need to create an account before they can login.</p>
+                </div>
+                <form id="login-form">
+                    <div class="auth-form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" name="email" placeholder="Enter your email address" required>
+                        <div class="form-error" id="login-email-error"></div>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="login-password">Password</label>
+                        <div class="password-input-container">
+                            <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" id="login-password-toggle">
+                                <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg class="eye-off-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="form-error" id="login-password-error"></div>
+                    </div>
+                    <div class="auth-form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember-me" name="rememberMe">
+                            <span class="checkbox-custom"></span>
+                            Remember me
+                        </label>
+                        <a href="#" id="forgot-password-link" class="forgot-password-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <span class="btn-text">Login</span>
+                        <div class="btn-loading" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            Logging in...
+                        </div>
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="auth-modal" id="register-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h2>Sign Up for KIT-IdeaHack 2025</h2>
+                <button class="auth-close" id="register-close">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div id="registration-info" class="auth-info-box" style="background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 8px; padding: 15px; margin-bottom: 20px; color: #0c4a6e;">
+                    <h4 style="margin: 0 0 8px 0; color: #0c4a6e;">🎉 Welcome to KIT-IdeaHack 2025!</h4>
+                    <p style="margin: 0; font-size: 0.9rem;">Create your account and register for the competition in one step. Fill in your details below to get started!</p>
+                </div>
+                <form id="register-form">
+                    <!-- Firebase Auth Fields -->
+                    <div class="auth-form-group">
+                        <label for="register-email">Email Address *</label>
+                        <input type="email" id="register-email" name="email" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-password">Password *</label>
+                        <input type="password" id="register-password" name="password" required minlength="6">
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-confirm-password">Confirm Password *</label>
+                        <input type="password" id="register-confirm-password" name="confirmPassword" required>
+                    </div>
+                    
+                    <!-- Competition Registration Fields -->
+                    <div class="auth-form-group">
+                        <label for="register-first-name">First Name *</label>
+                        <input type="text" id="register-first-name" name="firstName" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-last-name">Last Name *</label>
+                        <input type="text" id="register-last-name" name="lastName" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-phone">Phone Number *</label>
+                        <input type="tel" id="register-phone" name="phone" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-roll-number">Roll Number *</label>
+                        <input type="text" id="register-roll-number" name="rollNumber" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-year">Academic Year *</label>
+                        <select id="register-year" name="year" required>
+                            <option value="">Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                        </select>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-department">Department *</label>
+                        <select id="register-department" name="department" required>
+                            <option value="">Select Department</option>
+                            <option value="CSE">Computer Science Engineering</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="ECE">Electronics and Communication Engineering</option>
+                            <option value="EEE">Electrical and Electronics Engineering</option>
+                            <option value="MECH">Mechanical Engineering</option>
+                            <option value="CIVIL">Civil Engineering</option>
+                            <option value="AERO">Aeronautical Engineering</option>
+                            <option value="AUTO">Automobile Engineering</option>
+                        </select>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-team-name">Team Name *</label>
+                        <input type="text" id="register-team-name" name="teamName" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-team-members">Team Members (comma-separated emails) *</label>
+                        <textarea id="register-team-members" name="teamMembers" placeholder="member1@example.com, member2@example.com, member3@example.com" required></textarea>
+                        <small>Enter 1-3 additional team members (2-4 total including you)</small>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-problem-statement">Preferred Problem Statement</label>
+                        <select id="register-problem-statement" name="problemStatement">
+                            <option value="">Select Problem Statement (Optional)</option>
+                            <option value="PS001">Smart Campus Management System</option>
+                            <option value="PS002">AI-Powered Learning Assistant</option>
+                            <option value="PS003">Sustainable Energy Monitoring</option>
+                            <option value="PS004">Digital Health Platform</option>
+                            <option value="PS005">Smart Transportation Solution</option>
+                            <option value="other">Other (Specify in description)</option>
+                        </select>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="register-idea-description">Brief Idea Description</label>
+                        <textarea id="register-idea-description" name="ideaDescription" placeholder="Describe your innovative idea in 2-3 sentences"></textarea>
+                    </div>
+                    <div class="auth-form-group">
+                        <label class="auth-checkbox">
+                            <input type="checkbox" id="register-terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the terms and conditions of KIT-IdeaHack 2025 *
+                        </label>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">Create Account & Register</button>
+                </form>
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" id="switch-to-login">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Dashboard Modal -->
+    <div class="auth-modal" id="dashboard-modal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <h2>Welcome to KIT-IdeaHack 2025</h2>
+                <button class="auth-close" id="dashboard-close">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div id="user-info">
+                    <h3>Registration Details</h3>
+                    <div id="user-details"></div>
+                </div>
+                <div class="auth-actions">
+                    <button class="auth-logout-btn" id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- Initialize Firebase Auth -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Firebase Auth
+            window.firebaseAuth = new FirebaseAuth();
+            console.log('Firebase Auth initialized');
+        });
+    </script>
+</body>
+</html>
