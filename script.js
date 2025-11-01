@@ -191,10 +191,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const extensionText = extensionBanner.querySelector('.registration-extension-text');
             const extensionDetails = extensionBanner.querySelector('.registration-extension-details');
             if (extensionText) {
-                extensionText.textContent = '🎉 STAGE 1 RESULTS HAVE BEEN PUBLISHED 🎉';
+                extensionText.textContent = '🎉FINALS OF KIT-IDEA HACK 2025 🎉';
             }
             if (extensionDetails) {
-                extensionDetails.textContent = 'Students can now view their results by clicking the Selected Teams button below';
+                extensionDetails.textContent = 'Get ready to showcase your innovative ideas in the grand finale on 07 November 2025!';
             }
         }
     }
